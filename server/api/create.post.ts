@@ -1,9 +1,6 @@
 export default defineEventHandler(async (event) => {
   const { image, hairstyle, shade, color } = await readBody(event)
 
-  // Using deployments
-  // const endpoint = 'https://api.replicate.com/v1/deployments/replicate/changehairstyleai-com/predictions'
-
   // Using public model
   const endpoint = 'https://api.replicate.com/v1/predictions'
 
@@ -34,7 +31,20 @@ export default defineEventHandler(async (event) => {
     const output = json.output
 
     return { id, status, output }
-  } catch (e) {
+  } 
+  catch (e) {
     console.log('ERROR', e)
   }
 })
+function useRuntimeConfig() {
+  throw new Error("Function not implemented.")
+}
+
+function readBody(event: any): { image: any; hairstyle: any; shade: any; color: any } | PromiseLike<{ image: any; hairstyle: any; shade: any; color: any }> {
+  throw new Error("Function not implemented.")
+}
+
+function defineEventHandler(arg0: (event: any) => Promise<{ id: any; status: any; output: any }>) {
+  throw new Error("Function not implemented.")
+}
+

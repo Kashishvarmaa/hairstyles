@@ -1,22 +1,11 @@
-export default defineEventHandler(async (event) => {
-  const { id } = await readBody(event)
+export function defineEventHandler(arg0: (event: any) => Promise<{ id: any; status: any; output: any }>) {
+  throw new Error("Function not implemented.")
+}
+export function readBody(event: any): { id: any } | PromiseLike<{ id: any }> {
+  throw new Error("Function not implemented.")
+}
 
-  // Read prediction
-  const response = await fetch(
-    `https://api.replicate.com/v1/predictions/${id}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Token ' + useRuntimeConfig().replicateApiToken
-      }
-    }
-  )
-  const json = await response.json()
+export function useRuntimeConfig() {
+  throw new Error("Function not implemented.")
+}
 
-  // Parse prediction
-  const status = json.status
-  const output = json.output
-
-  return { id, status, output }
-})

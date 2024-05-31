@@ -2,7 +2,7 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
   runtimeConfig: {
-    replicateApiToken: process.env.NUXT_REPLICATE_API_TOKEN || ''
+    replicateApiToken: process.env.NUXT_REPLICATE_API_TOKEN || ' '
   },
   nitro: {
     preset: 'vercel-edge'
@@ -29,21 +29,8 @@ export default defineNuxtConfig({
       }
     }
   },
-  app: {
-    head: {
-      script: [
-        {
-          async: true,
-          src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_GTAG_ID}`
-        },
-        {
-          children: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NUXT_GTAG_ID}');`
-        }
-      ]
-    }
-  }
 })
+function defineNuxtConfig(arg0: { runtimeConfig: { replicateApiToken: any }; nitro: { preset: string }; sourcemap: { server: boolean; client: boolean }; build: { transpile: string[] }; modules: ((_options: any, nuxt: any) => void)[]; vite: { vue: { template: { transformAssetUrls: any } } } }) {
+  throw new Error('Function not implemented.')
+}
+
